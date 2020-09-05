@@ -14,6 +14,11 @@ export class AppController {
     return this.appService.getHello();
   }
 
+  @Get('budgets')
+  async getYnab(): Promise<string> {
+    return this.appService.getBudgets();
+  }
+
   @Get('env')
   getEnv(): string {
     return this.config.get('NODE_ENV');

@@ -22,7 +22,7 @@ describe('AppController', () => {
     });
 
     it('should return env name', () => {
-      expect(appController.getEnv()).toBe('test')
-    })
+      expect(appController.getEnv()).toBe('test');
+    });
   });
 });

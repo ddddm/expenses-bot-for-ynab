@@ -7,6 +7,6 @@ const PORT = 3000;
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   await app.listen(PORT);
-  Logger.log(`App started on port ${PORT}`)
+  Logger.log(`App started on port ${PORT}`);
 }
 bootstrap();
