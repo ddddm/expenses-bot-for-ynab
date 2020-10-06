@@ -1,8 +1,8 @@
 {
   "name": "expense-tracker-bot-for-ynab",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "A telegram bot with reminders to fill in expenses",
+  "author": "Dmitry Melnikov <m1290d@gmail.com>",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -25,9 +25,12 @@
     "@nestjs/config": "^0.5.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
+    "@nestjs/swagger": "^4.6.1",
+    "read-pkg-up": "^7.0.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
+    "swagger-ui-express": "^4.1.4",
     "ynab": "^1.20.0"
   },
   "devDependencies": {
