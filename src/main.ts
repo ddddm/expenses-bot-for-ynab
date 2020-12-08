@@ -9,7 +9,6 @@ const PORT = 3000;
 async function bootstrap() {
   const { description, version } = await getProjectMeta();
   const app = await NestFactory.create(AppModule);
-
   const options = new DocumentBuilder()
     .setTitle('Expense tracker for YNAB')
     .setDescription(description)
