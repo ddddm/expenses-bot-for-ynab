@@ -16,11 +16,9 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
-
+  app.enableShutdownHooks();
   await app.listen(PORT);
   Logger.log(`App started on port ${PORT}`);
 }
-
-// process.on('unhandledRejection')
 
 bootstrap();

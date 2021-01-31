@@ -1,34 +1,37 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, OnApplicationShutdown } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { Telegraf, Extra } from 'telegraf';
+import { Telegraf } from 'telegraf';
+import { tracePerf } from './bot-performance-middleware';
+import { BotContext } from './telegram-context';
 
 @Injectable()
-export class TelegramBotService {
-  private bot;
+export class TelegramBotService implements OnApplicationShutdown{
+  private bot: Telegraf<BotContext>;
 
   constructor(private readonly config: ConfigService) {
     this.setupBot();
   }
 
+  onApplicationShutdown(reason?: string) {
+    this.stopBot(reason);
+  }
+
   setupBot() {
-    this.bot = new Telegraf(this.config.get('BOT_TOKEN'));
+    this.bot = new Telegraf<BotContext>(this.config.get('BOT_TOKEN'));
     this.bot.use(Telegraf.log());
+    this.bot.use(tracePerf)
     this.addCommands();
     this.bot.launch();
+  }
+
+  stopBot(signal?: string) {
+    this.bot.stop(signal);
   }
 
   addCommands() {
     this.bot.command('caption', ctx => {
       return ctx.replyWithPhoto(
         { url: 'https://picsum.photos/200/300/?random' },
-        Extra.load({ caption: 'Caption' })
-          .markdown()
-          .markup(m =>
-            m.inlineKeyboard([
-              m.callbackButton('Plain', 'plain'),
-              m.callbackButton('Italic', 'italic'),
-            ]),
-          ),
       );
     });
   }
