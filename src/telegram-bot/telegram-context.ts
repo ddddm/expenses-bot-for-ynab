@@ -1,3 +1,3 @@
-import { Context } from "telegraf";
+import { Context, Scenes } from "telegraf";
 
-export interface BotContext extends Context {}
+export interface BotContext extends Scenes.WizardContext  {}
