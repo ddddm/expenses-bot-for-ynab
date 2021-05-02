@@ -3,6 +3,7 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { Logger } from '@nestjs/common';
 import { AppModule } from './app.module';
 import { getProjectMeta } from './project-meta';
+import { TelegramBotService } from './telegram-bot/telegram-bot.service';
 
 const PORT = 3000;
 
@@ -17,6 +18,8 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
   app.enableShutdownHooks();
+  const bot = app.get(TelegramBotService);
+  bot.setupBot();
   await app.listen(PORT);
   Logger.log(`App started on port ${PORT}`);
 }

@@ -8,9 +8,7 @@ import { BotContext } from './telegram-context';
 export class TelegramBotService implements OnApplicationShutdown{
   private bot: Telegraf<BotContext>;
 
-  constructor(private readonly config: ConfigService) {
-    this.setupBot();
-  }
+  constructor(private readonly config: ConfigService) {}
 
   onApplicationShutdown(reason?: string) {
     this.stopBot(reason);
