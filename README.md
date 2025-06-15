@@ -4,6 +4,8 @@ Telegram bot helps putting all your expenses into [YNAB](https://www.youneedabud
 
 ## Installation
 
+Requires Node.js 22 LTS.
+
 ```bash
 $ npm install
 ```

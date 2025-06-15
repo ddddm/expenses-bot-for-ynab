@@ -5,6 +5,9 @@
   "author": "Dmitry Melnikov <m1290d@gmail.com>",
   "private": true,
   "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
