@@ -1,6 +1,6 @@
 ## Description
 
-Telegram bot helps puting all your expenses into [YNAB](https://www.youneedabudget.com) at the end of the day. Built with NestJS. 
+Telegram bot helps putting all your expenses into [YNAB](https://www.youneedabudget.com) at the end of the day. Built with NestJS. 
 
 ## Installation
 
