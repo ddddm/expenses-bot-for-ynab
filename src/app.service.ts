@@ -4,7 +4,7 @@ import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AppService {
-  private instance: API;
+  private instance?: API;
 
   constructor(private config: ConfigService) {}
 
