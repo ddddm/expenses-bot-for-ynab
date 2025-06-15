@@ -4,7 +4,7 @@ import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AppService {
-  private instance: API;
+  private instance?: API;
 
   constructor(private config: ConfigService) {}
 
@@ -12,12 +12,15 @@ export class AppService {
     return 'Hello World!';
   }
 
-  getApiInstnace(): API {
-    const token = this.config.get('YNAB_API_KEY');
-    return this.instance || new API(token);
+  getApiInstance(): API {
+    if (!this.instance) {
+      const token = this.config.get('YNAB_API_KEY');
+      this.instance = new API(token);
+    }
+    return this.instance;
   }
   async getBudgets(): Promise<string> {
-    const { data } = await this.getApiInstnace().budgets.getBudgets();
+    const { data } = await this.getApiInstance().budgets.getBudgets();
 
     return data?.budgets
       .map(budget => {
