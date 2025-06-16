@@ -12,7 +12,7 @@ $ npm install
 
 ### Dev Containers
 
-This project includes a [Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) configuration. With the VS Code Dev Containers extension, you can open the repository directly in a container running Node.js 22. The container installs dependencies automatically and exposes port `3000`.
+This project includes a [Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) configuration. With the VS Code Dev Containers extension, you can open the repository directly in a container running Node.js 22 with TypeScript. The container installs dependencies automatically and exposes port `3000`.
 
 ## Running the app
 

@@ -1,6 +1,6 @@
 {
     "name": "Expense Tracker Bot",
-    "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+    "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
     "postCreateCommand": "npm install",
     "forwardPorts": [3000],
     "customizations": {
