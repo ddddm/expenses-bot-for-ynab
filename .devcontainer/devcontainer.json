@@ -1,6 +1,15 @@
 {
     "name": "Expense Tracker Bot",
     "image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+    "remoteUser": "node",
+    "mounts": [
+        "source=${localEnv:SSH_AUTH_SOCK},target=/ssh-agent,type=bind",
+        "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,consistency=cached",
+        "source=${localEnv:HOME}/.gitconfig,target=/home/node/.gitconfig,type=bind,consistency=cached"
+    ],
+    "remoteEnv": {
+        "SSH_AUTH_SOCK": "/ssh-agent"
+    },
     "postCreateCommand": "npm install",
     "forwardPorts": [3000],
     "customizations": {
